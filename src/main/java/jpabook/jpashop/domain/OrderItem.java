@@ -30,6 +30,7 @@ public class OrderItem {
 
     public OrderItem(Order order, Item item, int orderPrice, int count) {
         this.order = order;
+        System.out.println("생성자 " + order);
         this.item = item;
         this.orderPrice = orderPrice;
         this.count = count;
@@ -38,5 +39,11 @@ public class OrderItem {
     public void setOrder(Order order) {
         this.order = order;
     }
+
+    @Builder
+    OrderItem(Order order) {
+      this.order = order;
+    }
+
 
 }

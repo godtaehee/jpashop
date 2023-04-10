@@ -42,11 +42,22 @@ public class Order {
         member.getOrders().add(this);
     }
 
-    public void addOrderItem(OrderItem orderItem) {
+    public void addOrderItemWithConstructor(OrderItem orderItem) {
+        orderItem = new OrderItem(this, orderItem.getItem(), orderItem.getOrderPrice(), orderItem.getCount());
+        orderItems.add(orderItem);
+
+    }
+
+    public void addOrderItemWithSetter(OrderItem orderItem) {
+        orderItem = new OrderItem(this, orderItem.getItem(), orderItem.getOrderPrice(), orderItem.getCount());
         orderItems.add(orderItem);
         orderItem.setOrder(this);
-        orderItem = new OrderItem(this, orderItem.getItem(), orderItem.getOrderPrice(), orderItem.getCount());
+    }
 
+    public void addOrderItemWithBuilder(OrderItem orderItem) {
+        orderItem = OrderItem.builder().order(this).build();
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
     }
 
 }

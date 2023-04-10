@@ -9,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -31,14 +33,14 @@ class OrderTest {
                 .setMember(member);
         order.addOrderItem(orderItem);
 
+        List<OrderItem> orderItems = order.getOrderItems();
+
         em.persist(member);
         em.persist(order);
 
-        System.out.println("여기?");
         em.flush();
         em.clear();
 
-        System.out.println("ㄴㄴ?");
 
         Member foundMember = em.find(Member.class, member.getId());
 
