@@ -25,7 +25,10 @@ public class OrderItem {
     private int orderPrice;
     private int count;
 
-    public OrderItem() {
+    public OrderItem(Item item, int orderPrice, int count) {
+        this.item = item;
+        this.orderPrice = orderPrice;
+        this.count = count;
     }
 
     public OrderItem(Order order, Item item, int orderPrice, int count) {
@@ -46,4 +49,17 @@ public class OrderItem {
     }
 
 
+    public void cancel() {
+        getItem().addStock(count);
+    }
+
+    public int getTotalPrice() {
+        return orderPrice * count;
+    }
+
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
+        OrderItem orderItem = new OrderItem(item, orderPrice, count);
+        item.removeStock(count);
+        return orderItem;
+    }
 }

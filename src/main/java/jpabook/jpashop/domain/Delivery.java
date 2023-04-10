@@ -21,4 +21,9 @@ public class Delivery {
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
 
+    public Delivery(Order order, Address address, DeliveryStatus status) {
+        this.order = order;
+        this.address = address;
+        this.status = status;
+    }
 }

@@ -11,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 
 @SpringBootTest
 @Transactional
@@ -27,11 +25,11 @@ class OrderTest {
     void methodTest() {
         Member member = new Member("Member A");
         Order order = new Order();
-        OrderItem orderItem = new OrderItem();
+        OrderItem orderItem = new OrderItem(item, orderPrice, count);
 
         order
                 .setMember(member);
-        order.addOrderItem(orderItem);
+//        order.addOrderItem(orderItem);
 
         List<OrderItem> orderItems = order.getOrderItems();
 
