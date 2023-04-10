@@ -57,7 +57,6 @@ public class Order {
     public void addOrderItemWithBuilder(OrderItem orderItem) {
         orderItem = OrderItem.builder().order(this).build();
         orderItems.add(orderItem);
-        orderItem.setOrder(this);
     }
 
 }
