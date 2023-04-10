@@ -50,6 +50,7 @@ public class OrderItem {
 
 
     public void cancel() {
+        System.out.println("sadfasdfas" + count);
         getItem().addStock(count);
     }
 

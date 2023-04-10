@@ -26,4 +26,8 @@ public class Delivery {
         this.address = address;
         this.status = status;
     }
+
+    public Delivery(Address address) {
+        this.address = address;
+    }
 }

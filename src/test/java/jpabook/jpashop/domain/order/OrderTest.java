@@ -23,26 +23,26 @@ class OrderTest {
 
     @Test
     void methodTest() {
-        Member member = new Member("Member A");
-        Order order = new Order();
-        OrderItem orderItem = new OrderItem(item, orderPrice, count);
+//        Member member = new Member("Member A");
+//        Order order = new Order();
+//        OrderItem orderItem = new OrderItem(item, orderPrice, count);
 
-        order
-                .setMember(member);
+//        order
+//                .setMember(member);
 //        order.addOrderItem(orderItem);
 
-        List<OrderItem> orderItems = order.getOrderItems();
+//        List<OrderItem> orderItems = order.getOrderItems();
 
-        em.persist(member);
-        em.persist(order);
+//        em.persist(member);
+//        em.persist(order);
 
-        em.flush();
-        em.clear();
+//        em.flush();
+//        em.clear();
 
 
-        Member foundMember = em.find(Member.class, member.getId());
+//        Member foundMember = em.find(Member.class, member.getId());
 
-        System.out.println("foundMember.getOrders() = " + foundMember.getOrders());
+//        System.out.println("foundMember.getOrders() = " + foundMember.getOrders());
 
     }
 

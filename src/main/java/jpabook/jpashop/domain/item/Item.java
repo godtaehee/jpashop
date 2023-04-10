@@ -25,12 +25,21 @@ public class Item {
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
 
-    public void addStock(int quantity) {
+    public Item(String name, int price, int quantity) {
+        this.name = name;
+        this.price = price;
         this.stockQuantity = quantity;
+    }
+
+    protected Item() {}
+
+    public void addStock(int quantity) {
+        this.stockQuantity += quantity;
     }
 
     public void removeStock(int quantity) {
         int remainQuantity = this.stockQuantity - quantity;
+        System.out.println("remainQuawntity" + remainQuantity);
         if (remainQuantity < 0) {
             throw new NotEnoughStockException("need more stock");
         }
